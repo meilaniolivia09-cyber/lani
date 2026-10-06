@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profil Murid - 6 Jurusan</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+
+/* ==============================
+   DASAR WEBSITE
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f8fbff;
+    color: #40536b;
+}
+
+/* ==============================
+   NAVBAR
+================================= */
+
+.navbar {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(80,110,140,0.12);
+}
+
+.navbar-brand {
+    color: #5985b5 !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #60758c !important;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #6b9ed2 !important;
+}
+
+/* ==============================
+   HERO / PROFIL
+================================= */
+
+.hero {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top left, #e1f1ff, transparent 35%),
+        radial-gradient(circle at bottom right, #eee3ff, transparent 35%),
+        #f8fbff;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #486987;
+}
+
+.hero h1 span {
+    color: #75a9df;
+}
+
+.hero p {
+    color: #72859a;
+    line-height: 1.8;
+}
+
+/* FOTO PROFIL */
+
+.profile-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-photo {
+    width: 270px;
+    height: 270px;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+
+    border: 9px solid white;
+
+    background: #dceeff;
+
+    box-shadow:
+        0 15px 40px rgba(70,110,150,0.20);
+}
+
+.profile-badge {
+    margin-top: -18px;
+
+    padding: 10px 25px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    color: #5787b9;
+
+    font-weight: bold;
+
+    box-shadow: 0 7px 20px rgba(70,110,150,0.15);
+}
+
+/* TOMBOL */
+
+.btn-main {
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    background: #78aee8;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background: #5d95d3;
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+.edit-btn {
+    margin-top: 15px;
+
+    border: none;
+
+    padding: 9px 20px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #5987b7;
+
+    font-weight: 600;
+
+    box-shadow: 0 5px 15px rgba(70,110,150,0.12);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background: #78aee8;
+
+    color: white;
+}
+
+/* ==============================
+   SECTION
+================================= */
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-weight: 800;
+
+    color: #48657f;
+}
+
+.section-title p {
+    color: #8493a4;
+}
+
+/* ==============================
+   TENTANG
+================================= */
+
+.about-section {
+    background: white;
+}
+
+.about-card {
+    height: 100%;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    border: 1px solid #edf3f8;
+
+    box-shadow: 0 10px 30px rgba(70,100,130,0.08);
+}
+
+.about-card h4 {
+    color: #527594;
+
+    font-weight: 700;
+}
+
+.data-list {
+    list-style: none;
+
+    padding: 0;
+}
+
+.data-list li {
+    padding: 13px 0;
+
+    border-bottom: 1px dashed #dbe5ee;
+}
+
+.data-list i {
+    color: #75a9df;
+
+    margin-right: 8px;
+}
+
+/* SKILL */
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 10px;
+
+    border-radius: 20px;
+
+    background: #edf3f8;
+}
+
+.progress-bar {
+    background: #82b5e7;
+
+    border-radius: 20px;
+}
+
+/* ==============================
+   JURUSAN
+================================= */
+
+.jurusan-section {
+    background: #f1f7fd;
+}
+
+.jurusan-card {
+    height: 100%;
+
+    padding: 28px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    transition: 0.35s;
+
+    box-shadow: 0 8px 25px rgba(60,90,120,0.08);
+}
+
+.jurusan-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 40px rgba(60,90,120,0.15);
+}
+
+.jurusan-card img {
+    width: 105px;
+
+    height: 105px;
+
+    object-fit: contain;
+
+    margin-bottom: 15px;
+
+    transition: 0.3s;
+}
+
+.jurusan-card:hover img {
+    transform: scale(1.08);
+}
+
+.jurusan-card h4 {
+    font-weight: 800;
+
+    color: #4e6680;
+}
+
+.jurusan-card h6 {
+    margin-top: 18px;
+
+    font-weight: 700;
+
+    color: #52799d;
+}
+
+.jurusan-card p {
+    color: #75879a;
+}
+
+.jurusan-card ul {
+    color: #75879a;
+
+    line-height: 1.7;
+
+    padding-left: 20px;
+}
+
+/* WARNA 6 JURUSAN */
+
+.rpl {
+    background: #dceeff;
+}
+
+.dkv {
+    background: #ffe4ed;
+}
+
+.peksos {
+    background: #dcf6e7;
+}
+
+.tkj {
+    background: #e9e0ff;
+}
+
+.animasi {
+    background: #fff0c9;
+}
+
+.pspt {
+    background: #ffe4d2;
+}
+
+/* ==============================
+   DENAH
+================================= */
+
+.map-section {
+    background: white;
+}
+
+.map-box {
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(70,100,130,0.12);
+}
+
+.map-box iframe {
+    width: 100%;
+
+    height: 400px;
+
+    border: none;
+}
+
+/* ==============================
+   KONTAK
+================================= */
+
+.contact-section {
+    background: #f1f7fd;
+}
+
+.contact-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(70,100,130,0.08);
+}
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #dceeff;
+
+    color: #5e91c4;
+
+    font-size: 21px;
+}
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer {
+    padding: 35px 15px;
+
+    text-align: center;
+
+    background: #dcecff;
+
+    color: #56718c;
+}
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .profile-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     NAVBAR
+================================= -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="#home">
+<i class="bi bi-person-circle"></i>
+Profil Murid
+</a>
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#home">Beranda</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#tentang">Tentang Saya</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#jurusan">Jurusan</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#denah">Denah</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#kontak">Kontak</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- ==============================
+     PROFIL / BERANDA
+================================= -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="row align-items-center justify-content-center g-5">
+
+
+<!-- PROFIL -->
+
+<div class="col-lg-5 order-lg-2">
+
+<div class="profile-box">
+
+<img
+src="assets/foto-profil.jpg"
+id="fotoProfil"
+class="profile-photo"
+alt="Foto Profil">
+
+<span class="profile-badge">
+<i class="bi bi-code-slash"></i>
+RPL
+</span>
+
+<label for="inputFoto"
+class="edit-btn">
+
+<i class="bi bi-camera"></i>
+Ganti Foto
+
+</label>
+
+<input
+type="file"
+id="inputFoto"
+accept="image/*"
+hidden>
+
+</div>
+
+</div>
+
+
+<!-- TEKS -->
+
+<div class="col-lg-7 order-lg-1">
+
+<div class="hero-content">
+
+<p class="fw-bold text-primary">
+👋 HALO, SAYA
+</p>
+
+<h1>
+<span id="namaHero">
+Meilani Olivia
+</span>
+</h1>
+
+<h4>
+Siswa Rekayasa Perangkat Lunak
+</h4>
+
+<p>
+Selamat datang di website profil murid.
+Website ini berisi informasi tentang profil
+siswa dan enam jurusan yang ada di sekolah.
+</p>
+
+<a href="#jurusan"
+class="btn btn-main">
+
+<i class="bi bi-grid"></i>
+Lihat Jurusan
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     TENTANG SAYA
+================================= -->
+
+<section class="about-section" id="tentang">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Tentang Saya</h2>
+
+<p>Informasi singkat mengenai profil siswa</p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<!-- DATA DIRI -->
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h4 class="mb-4">
+
+<i class="bi bi-person-vcard"></i>
+
+Data Diri
+
+</h4>
+
+
+<ul class="data-list">
+
+<li>
+<i class="bi bi-person"></i>
+<b>Nama:</b>
+<span id="namaData">Meilani Olivia</span>
+</li>
+
+<li>
+<i class="bi bi-mortarboard"></i>
+<b>Kelas:</b>
+<span id="kelasData">XI RPL</span>
+</li>
+
+<li>
+<i class="bi bi-card-text"></i>
+<b>NIS:</b>
+<span id="nisData">123456</span>
+</li>
+
+<li>
+<i class="bi bi-geo-alt"></i>
+<b>Alamat:</b>
+<span id="alamatData">
+Medan, Sumatera Utara
+</span>
+</li>
+
+</ul>
+
+
+<button
+class="edit-btn"
+onclick="editProfil()">
+
+<i class="bi bi-pencil-square"></i>
+Edit Profil
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- KEAHLIAN -->
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h4 class="mb-4">
+
+<i class="bi bi-bar-chart"></i>
+
+Keahlian
+
+</h4>
+
+
+<div class="skill">
+
+<div class="d-flex justify-content-between">
+
+<span>HTML</span>
+<span>90%</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:90%">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="d-flex justify-content-between">
+
+<span>CSS</span>
+<span>85%</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:85%">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="d-flex justify-content-between">
+
+<span>JavaScript</span>
+<span>75%</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:75%">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="skill">
+
+<div class="d-flex justify-content-between">
+
+<span>PHP & MySQL</span>
+<span>70%</span>
+
+</div>
+
+<div class="progress">
+
+<div
+class="progress-bar"
+style="width:70%">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     6 JURUSAN
+================================= -->
+
+<section class="jurusan-section" id="jurusan">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>🎓 6 Jurusan Sekolah</h2>
+
+<p>
+Visi dan misi setiap jurusan
+</p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<!-- RPL -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card rpl">
+
+<img
+src="assets/logo/rpl.svg"
+alt="Logo RPL">
+
+<h4>RPL</h4>
+
+<p>
+Rekayasa Perangkat Lunak
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi pengembang perangkat lunak
+kompeten dan kreatif.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Mengembangkan kemampuan pemrograman.
+</li>
+
+<li>
+Meningkatkan kreativitas teknologi.
+</li>
+
+<li>
+Menghasilkan aplikasi bermanfaat.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- DKV -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card dkv">
+
+<img
+src="assets/logo/dkv.svg"
+alt="Logo DKV">
+
+<h4>DKV</h4>
+
+<p>
+Desain Komunikasi Visual
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi desainer visual kreatif
+untuk industri kreatif.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Mengembangkan kreativitas desain.
+</li>
+
+<li>
+Menguasai teknologi desain digital.
+</li>
+
+<li>
+Menghasilkan karya visual menarik.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PEKSOS -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card peksos">
+
+<img
+src="assets/logo/peksos.svg"
+alt="Logo PEKSOS">
+
+<h4>PEKSOS</h4>
+
+<p>
+Pekerjaan Sosial
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi tenaga sosial profesional
+yang peduli dan berempati.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Meningkatkan kepedulian masyarakat.
+</li>
+
+<li>
+Mengembangkan sikap empati.
+</li>
+
+<li>
+Memberikan pelayanan sosial yang baik.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- TKJ -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card tkj">
+
+<img
+src="assets/logo/tkj.svg"
+alt="Logo TKJ">
+
+<h4>TKJ</h4>
+
+<p>
+Teknik Komputer dan Jaringan
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi teknisi dan administrator
+jaringan yang handal.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Menguasai teknologi komputer.
+</li>
+
+<li>
+Meningkatkan kemampuan jaringan.
+</li>
+
+<li>
+Menghasilkan teknisi profesional.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- ANIMASI -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card animasi">
+
+<img
+src="assets/logo/animasi.svg"
+alt="Logo Animasi">
+
+<h4>ANIMASI</h4>
+
+<p>
+Animasi
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi animator kreatif
+dan produktif.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Mengembangkan kreativitas animasi.
+</li>
+
+<li>
+Menguasai teknologi animasi digital.
+</li>
+
+<li>
+Menghasilkan karya animasi berkualitas.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PSPT -->
+
+<div class="col-md-6 col-lg-4">
+
+<div class="jurusan-card pspt">
+
+<img
+src="assets/logo/pspt.svg"
+alt="Logo PSPT">
+
+<h4>PSPT</h4>
+
+<p>
+Produksi Siaran Program Televisi
+</p>
+
+<hr>
+
+<h6>🎯 Visi</h6>
+
+<p>
+Menjadi insan pertelevisian
+profesional dan beretika.
+</p>
+
+<h6>📌 Misi</h6>
+
+<ul class="text-start">
+
+<li>
+Mengembangkan kemampuan produksi televisi.
+</li>
+
+<li>
+Meningkatkan kreativitas penyiaran.
+</li>
+
+<li>
+Mengutamakan profesionalisme dan etika.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     DENAH
+================================= -->
+
+<section class="map-section" id="denah">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>📍 Denah Sekolah</h2>
+
+<p>
+Lokasi sekolah dan rute perjalanan
+</p>
+
+</div>
+
+
+<div class="map-box">
+
+<iframe
+src="https://www.google.com/maps?q=Jl.+Patriot+No.+20,+Sunggal&output=embed">
+</iframe>
+
+</div>
+
+
+<div class="text-center mt-4">
+
+<a
+href="https://www.google.com/maps/dir/?api=1&origin=Jl.+Setia+Gg.+Rukun+No.+1A,+Gaperta+Ujung&destination=Jl.+Patriot+No.+20,+Sunggal"
+target="_blank"
+class="btn btn-main">
+
+<i class="bi bi-map"></i>
+
+Lihat Rute Google Maps
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     KONTAK
+================================= -->
+
+<section class="contact-section" id="kontak">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>📞 Kontak</h2>
+
+<p>
+Informasi kontak siswa
+</p>
+
+</div>
+
+
+<div class="row justify-content-center">
+
+<div class="col-lg-7">
+
+<div class="contact-card">
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+
+<i class="bi bi-envelope"></i>
+
+</div>
+
+<div>
+
+<b>Email</b>
+
+<br>
+
+emailkamu@gmail.com
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+
+<i class="bi bi-instagram"></i>
+
+</div>
+
+<div>
+
+<b>Instagram</b>
+
+<br>
+
+@usernamekamu
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+
+<i class="bi bi-telephone"></i>
+
+</div>
+
+<div>
+
+<b>Telepon</b>
+
+<br>
+
+08xxxxxxxxxx
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+================================= -->
+
+<footer>
+
+<h5>
+<i class="bi bi-code-slash"></i>
+Profil Murid RPL
+</h5>
+
+<p>
+Website profil siswa dan informasi 6 jurusan sekolah.
+</p>
+
+<small>
+© 2026 Profil Murid
+</small>
+
+</footer>
+
+
+<!-- ==============================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+/* =========================
+   GANTI FOTO PROFIL
+========================= */
+
+document
+.getElementById("inputFoto")
+.addEventListener("change", function(event) {
+
+    const file = event.target.files[0];
+
+    if (file) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            document
+            .getElementById("fotoProfil")
+            .src = e.target.result;
+
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+});
+
+
+/* =========================
+   EDIT PROFIL
+========================= */
+
+function editProfil() {
+
+    let nama = prompt(
+        "Masukkan nama:",
+        document.getElementById("namaData").innerText
+    );
+
+    if (nama) {
+
+        document.getElementById("namaData").innerText = nama;
+
+        document.getElementById("namaHero").innerText = nama;
+
+    }
+
+
+    let kelas = prompt(
+        "Masukkan kelas:",
+        document.getElementById("kelasData").innerText
+    );
+
+    if (kelas) {
+
+        document.getElementById("kelasData").innerText = kelas;
+
+    }
+
+
+    let nis = prompt(
+        "Masukkan NIS:",
+        document.getElementById("nisData").innerText
+    );
+
+    if (nis) {
+
+        document.getElementById("nisData").innerText = nis;
+
+    }
+
+
+    let alamat = prompt(
+        "Masukkan alamat:",
+        document.getElementById("alamatData").innerText
+    );
+
+    if (alamat) {
+
+        document.getElementById("alamatData").innerText = alamat;
+
+    }
+
+}
+
+</script>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
